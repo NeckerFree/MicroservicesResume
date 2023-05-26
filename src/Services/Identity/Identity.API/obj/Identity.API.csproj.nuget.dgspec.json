@@ -44,151 +44,29 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "AspNetCore.HealthChecks.SqlServer": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "(, )"
+              "version": "[7.0.5, )"
             },
-            "AspNetCore.HealthChecks.UI.Client": {
+            "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
               "target": "Package",
-              "version": "(, )"
+              "version": "[7.0.5, )"
             },
-            "Autofac.Extensions.DependencyInjection": {
+            "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "(, )"
+              "version": "[7.0.5, )"
             },
-            "Azure.Extensions.AspNetCore.Configuration.Secrets": {
+            "Microsoft.Identity.Web": {
               "target": "Package",
-              "version": "(, )"
-            },
-            "Azure.Identity": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Duende.IdentityServer": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Duende.IdentityServer.AspNetIdentity": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Duende.IdentityServer.EntityFramework": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Duende.IdentityServer.EntityFramework.Storage": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Duende.IdentityServer.Storage": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Microsoft.ApplicationInsights.AspNetCore": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Microsoft.ApplicationInsights.DependencyCollector": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Microsoft.ApplicationInsights.Kubernetes": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Microsoft.AspNetCore.DataProtection.StackExchangeRedis": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Microsoft.AspNetCore.Diagnostics.HealthChecks": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Microsoft.AspNetCore.HealthChecks": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Microsoft.AspNetCore.Identity.UI": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Microsoft.EntityFrameworkCore.Relational": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Microsoft.Extensions.Logging.AzureAppServices": {
-              "target": "Package",
-              "version": "(, )"
+              "version": "[1.16.0, )"
             },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
-              "version": "(, )"
-            },
-            "Microsoft.Web.LibraryManager.Build": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Polly": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Serilog.AspNetCore": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Serilog.Enrichers.Environment": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Serilog.Settings.Configuration": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Serilog.Sinks.Console": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Serilog.Sinks.Http": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Serilog.Sinks.Seq": {
-              "target": "Package",
-              "version": "(, )"
+              "version": "[1.18.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "(, )"
-            },
-            "Swashbuckle.AspNetCore.Newtonsoft": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "System.Data.SqlClient": {
-              "target": "Package",
-              "version": "(, )"
+              "version": "[6.4.0, )"
             }
           },
           "imports": [
