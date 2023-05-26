@@ -1,82 +1,57 @@
-﻿var appName = "Identity.API";
-var builder = WebApplication.CreateBuilder();
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Identity.Web;
+using Microsoft.Identity.Web.Resource;
 
-if (builder.Configuration.GetValue<bool>("UseVault", false))
-{
-    TokenCredential credential = new ClientSecretCredential(
-        builder.Configuration["Vault:TenantId"],
-        builder.Configuration["Vault:ClientId"],
-        builder.Configuration["Vault:ClientSecret"]);
-    builder.Configuration.AddAzureKeyVault(new Uri($"https://{builder.Configuration["Vault:Name"]}.vault.azure.net/"), credential);
-}
+var builder = WebApplication.CreateBuilder(args);
 
-builder.AddCustomConfiguration();
-builder.AddCustomSerilog();
-builder.AddCustomMvc();
-builder.AddCustomDatabase();
-builder.AddCustomIdentity();
-builder.AddCustomIdentityServer();
-builder.AddCustomAuthentication();
-builder.AddCustomHealthChecks();
-builder.AddCustomApplicationServices();
+// Add services to the container.
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
+builder.Services.AddAuthorization();
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseDeveloperExceptionPage();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
-var pathBase = builder.Configuration["PATH_BASE"];
-if (!string.IsNullOrEmpty(pathBase))
+app.UseHttpsRedirection();
+
+var scopeRequiredByApi = app.Configuration["AzureAd:Scopes"] ?? "";
+var summaries = new[]
 {
-    app.UsePathBase(pathBase);
-}
-app.UseStaticFiles();
+    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+};
 
-// This cookie policy fixes login issues with Chrome 80+ using HHTP
-app.UseCookiePolicy(new CookiePolicyOptions { MinimumSameSitePolicy = SameSiteMode.Lax });
-
-app.UseRouting();
-
-app.UseIdentityServer();
-
-
-app.UseAuthorization();
-
-app.MapDefaultControllerRoute();
-
-app.MapHealthChecks("/hc", new HealthCheckOptions()
+app.MapGet("/weatherforecast", (HttpContext httpContext) =>
 {
-    Predicate = _ => true,
-    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-});
-app.MapHealthChecks("/liveness", new HealthCheckOptions
-{
-    Predicate = r => r.Name.Contains("self")
-});
-try
-{
-    app.Logger.LogInformation("Seeding database ({ApplicationName})...", appName);
+    httpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
 
-    // Apply database migration automatically. Note that this approach is not
-    // recommended for production scenarios. Consider generating SQL scripts from
-    // migrations instead.
-    using (var scope = app.Services.CreateScope())
-    {
-        await SeedData.EnsureSeedData(scope, app.Configuration, app.Logger);
-    }
+    var forecast = Enumerable.Range(1, 5).Select(index =>
+        new WeatherForecast
+        (
+            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+            Random.Shared.Next(-20, 55),
+            summaries[Random.Shared.Next(summaries.Length)]
+        ))
+        .ToArray();
+    return forecast;
+})
+.WithName("GetWeatherForecast")
+.WithOpenApi()
+.RequireAuthorization();
 
-    app.Logger.LogInformation("Starting web host ({ApplicationName})...", appName);
-    app.Run();
+app.Run();
 
-    return 0;
-}
-catch (Exception ex)
+internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
-    app.Logger.LogCritical(ex, "Host terminated unexpectedly ({ApplicationName})...", appName);
-    return 1;
-}
-finally
-{
-    Serilog.Log.CloseAndFlush();
+    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }
