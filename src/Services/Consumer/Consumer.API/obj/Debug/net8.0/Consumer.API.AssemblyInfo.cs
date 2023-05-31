@@ -11,12 +11,7 @@
 using System;
 using System.Reflection;
 
-<<<<<<< HEAD:src/Services/Identity/Identity.API/Consumer.API/obj/Debug/net8.0/Consumer.API.AssemblyInfo.cs
 [assembly: System.Reflection.AssemblyCompanyAttribute("Consumer.API")]
-=======
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-Identity.API-5b529739-25c3-4a0c-8687-ff6c07ecbaaf")]
-[assembly: System.Reflection.AssemblyCompanyAttribute("Identity.API")]
->>>>>>> 8cd82df5200e5b2a4a0cbfc414af5771c635e5b5:src/Services/Identity/Identity.API/obj/Debug/net7.0/Identity.API.AssemblyInfo.cs
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
