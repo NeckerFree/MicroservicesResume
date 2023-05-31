@@ -5,15 +5,13 @@ using MongoDB.Driver;
 
 namespace Consumer.API.Repositories
 {
-    public class ClientsRepository
+    public class ClientsRepository : IClientsRepository
     {
         private const string collectionName = "Clients";
         private readonly IMongoCollection<Client> dbCollection;
         private readonly FilterDefinitionBuilder<Client> filterBuilder = Builders<Client>.Filter;
-        public ClientsRepository()
+        public ClientsRepository(IMongoDatabase database)
         {
-            var mongoClient = new MongoClient("mongodb://localhost:27017");
-            var database = mongoClient.GetDatabase("Clients");
             dbCollection = database.GetCollection<Client>(collectionName);
         }
         public async Task<IReadOnlyCollection<Client>> GetAllClients()
@@ -45,7 +43,7 @@ namespace Consumer.API.Repositories
                 throw new ArgumentNullException(nameof(client));
             }
             FilterDefinition<Client> filter = filterBuilder.Eq(existentClient => existentClient.Id, id);
-          await dbCollection.ReplaceOneAsync(filter, client);
+            await dbCollection.ReplaceOneAsync(filter, client);
 
         }
 
@@ -57,6 +55,6 @@ namespace Consumer.API.Repositories
 
         }
 
-        
+
     }
 }

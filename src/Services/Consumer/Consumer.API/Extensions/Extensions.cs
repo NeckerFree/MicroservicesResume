@@ -42,6 +42,7 @@ namespace Consumer.API.Extensions
                 PostalCode = clientDTO.PostalCode,
                 Region = clientDTO.Region,
                 Status = clientDTO.Status,
+                Created=DateTimeOffset.Now,
             };
         }
     }
