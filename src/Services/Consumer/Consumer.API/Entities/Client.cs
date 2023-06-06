@@ -1,9 +1,10 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
+using Parser.Common.Entities;
 
 namespace Consumer.API.Entities
 {
-    public class Client
+    public class Client : IEntity
     {
         [BsonRepresentation(BsonType.String)]
         public Guid Id { get; set; }
@@ -11,12 +12,7 @@ namespace Consumer.API.Entities
         public string? Description { get; set; }
         public string? Status { get; set; }
         public string? Address { get; set; }
-        public string? City { get; set; }
-        public string? Region { get; set; }
-        public string? PostalCode { get; set; }
-        public string? Country { get; set; }
         public string? Phone { get; set; }
-        public string? Fax { get; set; }
         [BsonRepresentation(BsonType.DateTime)]
         public DateTimeOffset? Created { get; set; }
     }

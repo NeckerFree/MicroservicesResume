@@ -90,3 +90,4 @@ C:\ResumeParser\MicroservicesResume\src\Services\Consumer\Consumer.API\obj\Debug
 C:\ResumeParser\MicroservicesResume\src\Services\Consumer\Consumer.API\obj\Debug\net8.0\Consumer.API.pdb
 C:\ResumeParser\MicroservicesResume\src\Services\Consumer\Consumer.API\obj\Debug\net8.0\Consumer.API.genruntimeconfig.cache
 C:\ResumeParser\MicroservicesResume\src\Services\Consumer\Consumer.API\obj\Debug\net8.0\ref\Consumer.API.dll
+C:\ResumeParser\MicroservicesResume\src\Services\Consumer\Consumer.API\bin\Debug\net8.0\Parser.Common.dll

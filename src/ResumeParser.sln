@@ -5,6 +5,15 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Consumer.API", "Services\Consumer\Consumer.API\Consumer.API.csproj", "{FCE6B472-9162-4316-B83E-FE5BC9E6BD54}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parser.Common", "Parser.Common\Parser.Common.csproj", "{7213323D-D4AA-49C1-8E67-27FA7555D348}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{32908751-D143-4B90-8CB5-8FBFF8908D0E}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employment.API", "Employment.API\Employment.API.csproj", "{F6FECA8C-CE32-4B06-9D0D-120C582CF135}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +24,14 @@ Global
 		{FCE6B472-9162-4316-B83E-FE5BC9E6BD54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCE6B472-9162-4316-B83E-FE5BC9E6BD54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCE6B472-9162-4316-B83E-FE5BC9E6BD54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7213323D-D4AA-49C1-8E67-27FA7555D348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7213323D-D4AA-49C1-8E67-27FA7555D348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7213323D-D4AA-49C1-8E67-27FA7555D348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7213323D-D4AA-49C1-8E67-27FA7555D348}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6FECA8C-CE32-4B06-9D0D-120C582CF135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6FECA8C-CE32-4B06-9D0D-120C582CF135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6FECA8C-CE32-4B06-9D0D-120C582CF135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6FECA8C-CE32-4B06-9D0D-120C582CF135}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
