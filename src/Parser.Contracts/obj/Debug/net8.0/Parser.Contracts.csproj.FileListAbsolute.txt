@@ -1,0 +1,12 @@
+C:\ResumeParser\MicroservicesResume\src\Parser.Contracts\bin\Debug\net8.0\Parser.Contracts.deps.json
+C:\ResumeParser\MicroservicesResume\src\Parser.Contracts\bin\Debug\net8.0\Parser.Contracts.dll
+C:\ResumeParser\MicroservicesResume\src\Parser.Contracts\bin\Debug\net8.0\Parser.Contracts.pdb
+C:\ResumeParser\MicroservicesResume\src\Parser.Contracts\obj\Debug\net8.0\Parser.Contracts.csproj.AssemblyReference.cache
+C:\ResumeParser\MicroservicesResume\src\Parser.Contracts\obj\Debug\net8.0\Parser.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\ResumeParser\MicroservicesResume\src\Parser.Contracts\obj\Debug\net8.0\Parser.Contracts.AssemblyInfoInputs.cache
+C:\ResumeParser\MicroservicesResume\src\Parser.Contracts\obj\Debug\net8.0\Parser.Contracts.AssemblyInfo.cs
+C:\ResumeParser\MicroservicesResume\src\Parser.Contracts\obj\Debug\net8.0\Parser.Contracts.csproj.CoreCompileInputs.cache
+C:\ResumeParser\MicroservicesResume\src\Parser.Contracts\obj\Debug\net8.0\Parser.Contracts.dll
+C:\ResumeParser\MicroservicesResume\src\Parser.Contracts\obj\Debug\net8.0\refint\Parser.Contracts.dll
+C:\ResumeParser\MicroservicesResume\src\Parser.Contracts\obj\Debug\net8.0\Parser.Contracts.pdb
+C:\ResumeParser\MicroservicesResume\src\Parser.Contracts\obj\Debug\net8.0\ref\Parser.Contracts.dll

@@ -54,6 +54,10 @@
             },
             "Parser.Common": {
               "target": "Package",
+              "version": "[1.0.1, )"
+            },
+            "Parser.Contracts": {
+              "target": "Package",
               "version": "[1.0.0, )"
             },
             "Swashbuckle.AspNetCore": {

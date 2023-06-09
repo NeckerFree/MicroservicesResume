@@ -2,7 +2,6 @@
 using Employment.API.Entities;
 using Employment.API.Extensions;
 using Parser.Common.Repositories;
-using System.Runtime.CompilerServices;
 
 namespace Employment.API.EndPoints
 {
@@ -27,14 +26,14 @@ namespace Employment.API.EndPoints
                 : Results.NotFound();
             })
             .WithName("GetPositionById");
-            group.MapPost("/", async (ClientJob clientJob, IRepository<JobPosition> _jobRepository) =>
+            group.MapPost("/", async (JobPositionDTO clientJob, IRepository<JobPosition> _jobsRepository) =>
             {
-                await _jobRepository.CreateAsync(clientJob.FomDTO());
+                await _jobsRepository.CreateAsync(clientJob.FomDTO());
             })
                 .WithName("CreateJobPosition");
-            group.MapPut("/", async (Guid id, ClientJob clientJob, IRepository<JobPosition> _jobRepository) =>
+            group.MapPut("/", async (Guid id, JobPositionDTO clientJob, IRepository<JobPosition> _jobsRepository) =>
             {
-                await _jobRepository.UpdateAsync( id,clientJob.FomDTO());
+                await _jobsRepository.UpdateAsync( id,clientJob.FomDTO());
             })
             .WithName("UpdateJobPosition");
             group.MapDelete("/", async (Guid guid, IRepository<JobPosition> _jobsRepository) =>

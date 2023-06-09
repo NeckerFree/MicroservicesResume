@@ -7,14 +7,7 @@ namespace Consumer.API.Extensions
     {
         public static ClientDTO AsDto(this Client client)
         {
-            return new ClientDTO()
-            {
-                Address = client.Address,
-                Description = client.Description,
-                Id = client.Id,
-                Name = client.Name,
-                Phone = client.Phone,
-            };
+            return new ClientDTO(client.Id, client.Name, client.Description, client.Address, client.Phone);
         }
 
         public static Client FromDto(this ClientDTO clientDTO)
