@@ -6,11 +6,11 @@ namespace Employment.API.Extensions
 {
     public static class Extensions
     {
-        public static ClientJob AsDTO(this JobPosition jobPosition)
+        public static JobPositionDTO AsDTO(this JobPosition jobPosition)
         {
-            return new ClientJob(jobPosition.Id,  jobPosition.ClientId, jobPosition.Title, jobPosition.Description, jobPosition.Requisites);
+            return new JobPositionDTO(jobPosition.Id,  jobPosition.ClientId, jobPosition.Title, jobPosition.Description, jobPosition.Requisites);
         }
-        public static JobPosition FomDTO(this ClientJob clientJob)
+        public static JobPosition FomDTO(this JobPositionDTO clientJob)
         {
             return new JobPosition()
             {
