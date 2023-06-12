@@ -45,3 +45,10 @@ C:\ResumeParser\MicroservicesResume\src\Employment.API\obj\Debug\net8.0\refint\E
 C:\ResumeParser\MicroservicesResume\src\Employment.API\obj\Debug\net8.0\Employment.API.pdb
 C:\ResumeParser\MicroservicesResume\src\Employment.API\obj\Debug\net8.0\Employment.API.genruntimeconfig.cache
 C:\ResumeParser\MicroservicesResume\src\Employment.API\obj\Debug\net8.0\ref\Employment.API.dll
+C:\ResumeParser\MicroservicesResume\src\Employment.API\bin\Debug\net8.0\MassTransit.dll
+C:\ResumeParser\MicroservicesResume\src\Employment.API\bin\Debug\net8.0\MassTransit.Abstractions.dll
+C:\ResumeParser\MicroservicesResume\src\Employment.API\bin\Debug\net8.0\MassTransit.AspNetCoreIntegration.dll
+C:\ResumeParser\MicroservicesResume\src\Employment.API\bin\Debug\net8.0\MassTransit.ExtensionsDependencyInjectionIntegration.dll
+C:\ResumeParser\MicroservicesResume\src\Employment.API\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
+C:\ResumeParser\MicroservicesResume\src\Employment.API\bin\Debug\net8.0\Parser.Contracts.dll
+C:\ResumeParser\MicroservicesResume\src\Employment.API\bin\Debug\net8.0\RabbitMQ.Client.dll
