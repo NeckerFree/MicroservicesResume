@@ -10,14 +10,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{32908751-D143-4B90-8CB5-8FBFF8908D0E}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
-		Readme.md = Readme.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employment.API", "Employment.API\Employment.API.csproj", "{F6FECA8C-CE32-4B06-9D0D-120C582CF135}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parser.Contracts", "Parser.Contracts\Parser.Contracts.csproj", "{F6105413-DE37-487D-BD00-0917FC61B75E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity.Api", "Identity.Api\Identity.Api.csproj", "{F9B29F10-B75D-4A15-AB37-AA5238AD5B2F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Api", "Identity.Api\Identity.Api.csproj", "{F9B29F10-B75D-4A15-AB37-AA5238AD5B2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
