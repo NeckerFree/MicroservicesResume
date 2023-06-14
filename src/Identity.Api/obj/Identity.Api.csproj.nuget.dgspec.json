@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ResumeParser\\MicroservicesResume\\src\\Identity.API\\Identity.Api.csproj": {}
+    "C:\\ResumeParser\\MicroservicesResume\\src\\Identity.Api\\Identity.Api.csproj": {}
   },
   "projects": {
-    "C:\\ResumeParser\\MicroservicesResume\\src\\Identity.API\\Identity.Api.csproj": {
+    "C:\\ResumeParser\\MicroservicesResume\\src\\Identity.Api\\Identity.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ResumeParser\\MicroservicesResume\\src\\Identity.API\\Identity.Api.csproj",
+        "projectUniqueName": "C:\\ResumeParser\\MicroservicesResume\\src\\Identity.Api\\Identity.Api.csproj",
         "projectName": "Identity.Api",
-        "projectPath": "C:\\ResumeParser\\MicroservicesResume\\src\\Identity.API\\Identity.Api.csproj",
+        "projectPath": "C:\\ResumeParser\\MicroservicesResume\\src\\Identity.Api\\Identity.Api.csproj",
         "packagesPath": "C:\\Users\\elio_\\.nuget\\packages\\",
-        "outputPath": "C:\\ResumeParser\\MicroservicesResume\\src\\Identity.API\\obj\\",
+        "outputPath": "C:\\ResumeParser\\MicroservicesResume\\src\\Identity.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -44,6 +44,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.7, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.5, )"
