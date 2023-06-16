@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "TrV3QGvJavOLaitpMms+lPfSFqtLZmjQu7TjgZXc8cY6oLUVAM1cFGqWZPdTatSq2JTn3IxJS1cD300ol/jR0g==",
+  "success": true,
+  "projectFilePath": "C:\\ResumeParser\\MicroservicesResume\\src\\Api.Gateway\\Api.Gateway.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\elio_\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
