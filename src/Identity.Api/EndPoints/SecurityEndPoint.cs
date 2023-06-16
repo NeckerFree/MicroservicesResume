@@ -1,33 +1,41 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Identity.Api.DbContext;
+using Identity.Api.Entities;
+using Identity.Api.Hasher;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Identity.Api.DbContext;
 using static Identity.Api.DTOs.DTOs;
 
 namespace Identity.Api.EndPoints
 {
     public static class SecurityEndPoint
     {
-        public static void MapSecurityEndPoint(this IEndpointRouteBuilder routes)
+
+        public static void MapSecurityEndPoint(this IEndpointRouteBuilder routes, JWT jwt)
         {
+
             var group = routes.MapGroup("api/security");
-            group.MapPost("/getToken", [AllowAnonymous] (UserDto user) =>
+            group.MapPost("/getToken", [AllowAnonymous] async (UserDto user, IdentityMSContext db) =>
             {
 
-                if (user.UserName == "admin@mohamadlawand.com" && user.Password == "P@ssword")
+                PasswordHasher<UserDto> passwordHasher = new PasswordHasher<UserDto>();
+                var dbUser = await db.Users.FirstOrDefaultAsync(u => u.UserName == user.UserName);
+                if (dbUser != null)
                 {
-                    var issuer = builder.Configuration["Jwt:Issuer"];
-                    var audience = builder.Configuration["Jwt:Audience"];
-                    var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]));
+                    var ok = passwordHasher.VerifyHashedPassword(user, dbUser.PasswordHash, user.Password);
+                    var issuer = jwt.Issuer;
+                    var audience = jwt.Audience;
+                    var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.Key));
                     var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
                     // Now its ime to define the jwt token which will be responsible of creating our tokens
                     var jwtTokenHandler = new JwtSecurityTokenHandler();
 
                     // We get our secret from the appsettings
-                    var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]);
+                    var key = Encoding.ASCII.GetBytes(jwt.Key);
 
                     // we define our token descriptor
                     // We need to utilise claims which are properties in our token which gives information about the token
@@ -64,55 +72,56 @@ namespace Identity.Api.EndPoints
                     return Results.Unauthorized();
                 }
             });
-            group.MapGet("/items", [Authorize] async (IdentityMSContext db) =>
-            {
-                return await db.Items.ToListAsync();
-            });
+            //group.MapGet("/items", [Authorize] async (IdentityMSContext db) =>
+            //{
+            //    return await db.Items.ToListAsync();
+            //});
 
-            group.MapPost("/items", [Authorize] async (IdentityMSContext db, Item item) => {
-                if (await db.Items.FirstOrDefaultAsync(x => x.Id == item.Id) != null)
-                {
-                    return Results.BadRequest();
-                }
+            //group.MapPost("/items", [Authorize] async (IdentityMSContext db, Item item) => {
+            //    if (await db.Items.FirstOrDefaultAsync(x => x.Id == item.Id) != null)
+            //    {
+            //        return Results.BadRequest();
+            //    }
 
-                db.Items.Add(item);
-                await db.SaveChangesAsync();
-                return Results.Created($"/Items/{item.Id}", item);
-            });
+            //    db.Items.Add(item);
+            //    await db.SaveChangesAsync();
+            //    return Results.Created($"/Items/{item.Id}", item);
+            //});
 
-            group.MapGet("/items/{id}", [Authorize] async (IdentityMSContext db, int id) =>
-            {
-                var item = await db.Items.FirstOrDefaultAsync(x => x.Id == id);
+            //group.MapGet("/items/{id}", [Authorize] async (IdentityMSContext db, int id) =>
+            //{
+            //    var item = await db.Items.FirstOrDefaultAsync(x => x.Id == id);
 
-                return item == null ? Results.NotFound() : Results.Ok(item);
-            });
+            //    return item == null ? Results.NotFound() : Results.Ok(item);
+            //});
 
-            group.MapPut("/items/{id}", [Authorize] async (IdentityMSContext db, int id, Item item) =>
-            {
-                var existItem = await db.Items.FirstOrDefaultAsync(x => x.Id == id);
-                if (existItem == null)
-                {
-                    return Results.BadRequest();
-                }
+            //group.MapPut("/items/{id}", [Authorize] async (IdentityMSContext db, int id, Item item) =>
+            //{
+            //    var existItem = await db.Items.FirstOrDefaultAsync(x => x.Id == id);
+            //    if (existItem == null)
+            //    {
+            //        return Results.BadRequest();
+            //    }
 
-                existItem.Title = item.Title;
-                existItem.IsCompleted = item.IsCompleted;
+            //    existItem.Title = item.Title;
+            //    existItem.IsCompleted = item.IsCompleted;
 
-                await db.SaveChangesAsync();
-                return Results.Ok(item);
-            });
+            //    await db.SaveChangesAsync();
+            //    return Results.Ok(item);
+            //});
 
-            group.MapDelete("/items/{id}", [Authorize] async (IdentityMSContext db, int id) =>
-            {
-                var existItem = await db.Items.FirstOrDefaultAsync(x => x.Id == id);
-                if (existItem == null)
-                {
-                    return Results.BadRequest();
-                }
+            //group.MapDelete("/items/{id}", [Authorize] async (IdentityMSContext db, int id) =>
+            //{
+            //    var existItem = await db.Items.FirstOrDefaultAsync(x => x.Id == id);
+            //    if (existItem == null)
+            //    {
+            //        return Results.BadRequest();
+            //    }
 
-                db.Items.Remove(existItem);
-                await db.SaveChangesAsync();
-                return Results.NoContent();
-            });
+            //    db.Items.Remove(existItem);
+            //    await db.SaveChangesAsync();
+            //    return Results.NoContent();
+            //});
         }
+    }
 }

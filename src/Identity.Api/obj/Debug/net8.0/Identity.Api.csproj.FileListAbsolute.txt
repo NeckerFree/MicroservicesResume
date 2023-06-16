@@ -75,3 +75,4 @@ C:\ResumeParser\MicroservicesResume\src\Identity.Api\bin\Debug\net8.0\Microsoft.
 C:\ResumeParser\MicroservicesResume\src\Identity.Api\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
 C:\ResumeParser\MicroservicesResume\src\Identity.Api\bin\Debug\net8.0\Mono.TextTemplating.dll
 C:\ResumeParser\MicroservicesResume\src\Identity.Api\bin\Debug\net8.0\System.CodeDom.dll
+C:\ResumeParser\MicroservicesResume\src\Identity.Api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

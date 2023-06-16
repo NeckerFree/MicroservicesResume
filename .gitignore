@@ -9,3 +9,7 @@
 /src/Parser.Contracts/obj
 /src/Employment.API/obj/Debug/net8.0/Employment.API.assets.cache
 /src/Identity.Api/obj/Debug/net8.0
+/src/.vs/ResumeParser/DesignTimeBuild/.dtbcache.v2
+/src/.vs/ResumeParser/v17/.futdcache.v2
+/src/.vs/ProjectEvaluation/resumeparser.metadata.v7.bin
+/src/.vs/ProjectEvaluation/resumeparser.projects.v7.bin
